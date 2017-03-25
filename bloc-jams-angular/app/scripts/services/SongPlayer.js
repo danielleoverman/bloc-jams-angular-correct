@@ -77,7 +77,7 @@
 
 /**
 * @function previous
-* @desc go to previous current song
+* @desc go to previous song
 * @param {Object} song
 */
      
@@ -85,8 +85,24 @@
         var currentSongIndex = getSongIndex(SongPlayer.currentSong);
         currentSongIndex--;
         if (currentSongIndex < 0) {
-            currentBuzzObject.stop();
-            SongPlayer.currentSong.playing = null;
+            stopSong(SongPlayer.currentSong);
+        } else {
+            var song = currentAlbum.songs[currentSongIndex];
+            setSong(song);
+            playSong(song);
+        }
+    };
+/**
+* @function next
+* @desc go to next song
+* @param {Object} song
+*/			
+    SongPlayer.next = function () {
+        var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+            currentSongIndex++;
+
+        if (currentSongIndex === currentAlbum.songs.length) {
+ +          stopSong(SongPlayer.currentSong);
         } else {
             var song = currentAlbum.songs[currentSongIndex];
             setSong(song);
