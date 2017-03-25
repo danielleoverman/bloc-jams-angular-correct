@@ -23,7 +23,7 @@
  * @desc Buzz object audio file
  * @type {Object}
  */
-    var currentBuzzObject = null;
+        var currentBuzzObject = null;
 
  /**
  * @function setSong
@@ -33,8 +33,7 @@
         
     var setSong = function(song) {
         if (currentBuzzObject) {
-            currentBuzzObject.stop();
-            SongPlayer.currentSong.playing = null;
+            stopSong(SongPlayer.currentSong);
         }
 
         currentBuzzObject = new buzz.sound(song.audioUrl, {
@@ -45,7 +44,17 @@
         SongPlayer.currentSong = song;
     };
         
- /**
+/**
+*@function stopstong
+*@desc stop the song private function
+*@param {object} song
+*/
+        var stopSong = function(song) {
+            currentBuzzObject.stop();
+            song.playing = null;
+        }
+           
+/**
  * @function play
  * @desc Play current or new song
  * @param {Object} song
@@ -101,8 +110,7 @@
         var currentSongIndex = getSongIndex(SongPlayer.currentSong);
             currentSongIndex++;
 
-        if (currentSongIndex === currentAlbum.songs.length) {
- +          stopSong(SongPlayer.currentSong);
+        if (currentSongIndex === currentAlbum.songs.length) {           stopSong(SongPlayer.currentSong);
         } else {
             var song = currentAlbum.songs[currentSongIndex];
             setSong(song);
