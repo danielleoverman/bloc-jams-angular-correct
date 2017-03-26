@@ -28,9 +28,13 @@
                 var percent = value / max * 100;
                 return percent + "%";
             };
- 
+            
             scope.fillStyle = function() {
                 return {width: percentString()};
+            };
+
+            scope.thumbStyle = function() {
+                return {left: percentString()};
             }; 
 
             scope.onClickSeekBar = function(event) {
