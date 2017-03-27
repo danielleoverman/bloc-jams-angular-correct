@@ -1,3 +1,4 @@
+
 (function() {
     function SongPlayer(Fixtures) {
         var SongPlayer = {};
@@ -122,7 +123,7 @@
 * @function next
 * @desc go to next song
 * @param {Object} song
-*/			
+*/          
         SongPlayer.next = function() {
             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
             currentSongIndex++;
@@ -142,4 +143,4 @@
     angular
         .module('blocJams')
         .factory('SongPlayer', ['Fixtures', SongPlayer]);
- })();
+})();
