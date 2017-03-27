@@ -27,6 +27,16 @@
             preload: true
         });
         
+/**
+* @function getSongIndex
+* @desc gets index of the song
+* @param {Object} song
+*/
+            
+        var getSongIndex = function(song) {
+            return currentAlbum.songs.indexOf(song);
+        };            
+            
         SongPlayer.currentSong = song;
         };
 
@@ -41,15 +51,7 @@
             song.playing = true;
         }     
         
-/**
-* @function getSongIndex
-* @desc gets index of the song
-* @param {Object} song
-*/
-            
-        var getSongIndex = function(song) {
-            return currentAlbum.songs.indexOf(song);
-        };
+
         
 /**
 * @desc Active song object from list of songs
